@@ -1,0 +1,291 @@
+/* Modern Pastel Glass Theme with Dark Accents */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Gradient: pastel with a hint of deep tones */
+  --bg-gradient: linear-gradient(135deg, #94868e 0%, #71afb9 50%, #e8d5e0 100%);
+  
+  /* Glass Card Variables - semi-dark glass for contrast */
+  --glass-bg: rgba(30, 30, 50, 0.6);
+  --glass-border: rgba(68, 22, 54, 0.13);
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --blur-amt: 14px;
+
+  /* Text Colors */
+  --text-primary: #1a1a2e;    /* Very dark indigo */
+  --text-secondary: #4a4a6a;  /* Medium dark */
+  --text-on-glass: #f0f0f5;   /* Light text for dark glass cards */
+  --text-muted-glass: #c5c5d8;/* Muted light for secondary text on glass */
+  --accent-color: #13709b;    /* Vivid purple accent */
+  --accent-soft: #8bbffa;     /* Soft purple */
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Subtle ambient orb */
+body::before {
+  content: '';
+  position: fixed;
+  top: -15%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.08), transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ── Navigation ── */
+.glass-nav {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 100;
+  margin: 0 auto;
+  width: fit-content;
+  
+  padding: 0.3rem 1rem;
+  background: rgba(20, 20, 40, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  
+  display: flex;
+  gap: 0.25rem;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  color: #fff;
+  background: var(--accent-color);
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.35);
+}
+
+/* ── Main Layout ── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* ── Hero Section (Home) ── */
+.hero-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+
+.hero-content {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-image {
+  flex-shrink: 0;
+}
+
+.avatar-large {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.15),
+    0 0 0 10px rgba(255, 255, 255, 0.08);
+  transition: transform 0.4s ease;
+}
+
+.avatar-large:hover {
+  transform: scale(1.03);
+}
+
+/* ── Glass Cards (Dark Glass for Contrast) ── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-amt));
+  -webkit-backdrop-filter: blur(var(--blur-amt));
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--glass-shadow);
+  color: var(--text-on-glass);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.section-card {
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Text inside glass cards */
+.glass h3 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.glass h4 {
+  color: var(--accent-soft);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0 0 0.4rem 0;
+}
+
+.glass p {
+  color: var(--text-muted-glass);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0.25rem 0;
+}
+
+/* ── Typography (Outside Glass - on pastel bg) ── */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.4rem 0;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+/* ── Grid Layout (for Education & Skills) ── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* ── Skill Tags ── */
+.skill-tag {
+  display: inline-block;
+  background: rgba(124, 58, 237, 0.2);
+  color: #e0d4fa;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin: 0.2rem;
+  transition: background 0.2s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(124, 58, 237, 0.35);
+}
+
+/* ── Contact Items ── */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.9rem;
+  color: var(--text-on-glass);
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+}
+
+.contact-item a {
+  color: var(--accent-soft);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-item a:hover {
+  color: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero-wrapper {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+  
+  .avatar-large {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  h1 { font-size: 1.6rem; }
+}
+
+/* ── Animations ── */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
