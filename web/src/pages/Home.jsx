@@ -4,7 +4,7 @@ export default function Home() {
       {/* Left Column: Text Content */}
       <div className="hero-content">
         <h1>Oscar Sedano Vargas</h1>
-        <h2>Sociólogo | Especialista en Responsabilidad Social</h2>
+        <h2>Sociólogo | Especialista en análisis de datos, redacción y publicación científica</h2>
         
         <div className="glass" style={{ padding: '2rem', marginTop: '2rem' }}>
           <h3>Perfil Profesional</h3>
